@@ -1,11 +1,11 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "composite": true,
+    "declaration": true,
     "declarationMap": true,
-    "emitDeclarationOnly": true,
     "importHelpers": true,
     "isolatedModules": true,
-    "lib": ["es2022"],
+    "lib": ["es2022", "dom"],
     "module": "es2022",
     "moduleResolution": "bundler",
     "noEmitOnError": true,
@@ -16,6 +16,9 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@org/source"]
+    "rootDir": ".",
+    "paths": {
+      "remote1/Routes": ["./apps/src/app/remote-entry/entry.routes.ts"]
+    }
   }
 }
