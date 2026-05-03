@@ -1,9 +1,13 @@
 import { Route } from '@angular/router';
-import { Root } from './root';
+import { loadRemote } from '@module-federation/enhanced/runtime';
 
 export const appRoutes: Route[] = [
   {
-    path: '',
-    component: Root,
+    path: 'home',
+    loadChildren: async () => {
+      return await loadRemote<typeof import('remote1/Routes')>(
+        'remote1/Routes',
+      ).then((m) => m.remoteRoutes);
+    },
   },
 ];

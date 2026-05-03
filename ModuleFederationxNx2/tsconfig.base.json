@@ -17,8 +17,5 @@
     "strict": true,
     "target": "es2022",
     "rootDir": ".",
-    "paths": {
-      "remote1/Routes": ["./apps/src/app/remote-entry/entry.routes.ts"]
-    }
   }
 }

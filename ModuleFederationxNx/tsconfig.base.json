@@ -13,8 +13,6 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    // "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
     "paths": {
       "remote1/Routes": ["./apps/src/app/remote-entry/entry.routes.ts"]
     }
