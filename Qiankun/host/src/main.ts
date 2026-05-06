@@ -16,9 +16,7 @@ bootstrapApplication(App, appConfig)
 
     if (!(window as any).qiankunStarted) {
       (window as any).qiankunStarted = true;
-      start({
-        sandbox: { strictStyleIsolation: true },
-      });
+      start();
     }
   })
   .catch((err) => console.error(err));

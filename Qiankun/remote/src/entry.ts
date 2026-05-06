@@ -9,14 +9,19 @@ const render = async () => {
   // Only render once - don't create multiple instances
   if (appRef) {
     console.log('[remote] App already rendered, reusing instance');
-    return appRef;
+    console.log((window as any).remotes);
+    // return appRef;
   }
 
   try {
     const app = await bootstrapApplication(App, appConfig);
     appRef = app.injector.get(ApplicationRef);
+    console.log(app);
+    console.log(appRef);
+
     console.log('[remote] App rendered successfully');
-    return appRef;
+    console.log((window as any).remotes);
+    // return appRef;
   } catch (err) {
     console.error('[remote] Error rendering app:', err);
     throw err;
@@ -24,24 +29,32 @@ const render = async () => {
 };
 
 // Qiankun lifecycle hooks - MUST be exported as module exports
-export const bootstrap = async () => {
-  console.log('[remote] bootstrap');
+const bootstrap = async () => {
+  console.log('[remote] bootstrap', (window as any).__POWERED_BY_QIANKUN__ ? 'via Qiankun' : 'standalone');
+  console.log((window as any).remotes);
+
+  // return render();
+};
+
+const mount = async () => {
+  console.log('[remote] mount', (window as any).__POWERED_BY_QIANKUN__ ? 'via Qiankun' : 'standalone');
+  console.log((window as any).remotes);
+
   return render();
 };
 
-export const mount = async () => {
-  console.log('[remote] mount');
-  return render();
-};
+const unmount = async () => {
+  console.log('[remote] unmount', (window as any).__POWERED_BY_QIANKUN__ ? 'via Qiankun' : 'standalone');
+  console.log((window as any).remotes);
 
-export const unmount = async () => {
-  console.log('[remote] unmount');
   if (appRef) {
     appRef.destroy();
     appRef = null;
     console.log('[remote] App destroyed');
   }
 };
+
+(window as any).remotes = { bootstrap, mount, unmount };
 
 // Standalone mode - when app is loaded directly (not via Qiankun)
 if (!(window as any).__POWERED_BY_QIANKUN__) {
