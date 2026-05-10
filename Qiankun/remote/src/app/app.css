@@ -1,0 +1,17 @@
+.remote-app {
+  font-family: Arial, sans-serif;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  border: 1px solid #d1d5db;
+}
+
+.remote-app h1 {
+  margin: 0 0 0.5rem;
+  color: #1d4ed8;
+}
+
+.remote-app p {
+  margin: 0;
+  color: #475569;
+}

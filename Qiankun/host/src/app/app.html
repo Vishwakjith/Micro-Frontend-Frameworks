@@ -1,0 +1,17 @@
+<div class="host-shell">
+  <header>
+    <h1>{{ title() }}</h1>
+    <p>Host app powered by Angular and qiankun.</p>
+    <div class="button-row">
+      <button class="btn" (click)="loadRemote()">Load Remote</button>
+      <button class="btn" (click)="unloadRemote()">Unload Remote</button>
+    </div>
+  </header>
+
+  <section class="remote-panel">
+    <h2>Remote container</h2>
+    <div id="remote-container" class="remote-container">
+      <p class="placeholder">Remote will mount here when the URL path starts with <code>/remote</code>.</p>
+    </div>
+  </section>
+</div>
